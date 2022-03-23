@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ![](/src/assets/tela_principal.png)
 
-##Techs
+## Techs
 * Reac JS
 * Styled Components
 * TypeScript
