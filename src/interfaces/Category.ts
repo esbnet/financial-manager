@@ -1,4 +1,4 @@
-export interface Category {
+export interface ICategory {
 	[tag: string]: {
 		id: number;
 		describe: string;
