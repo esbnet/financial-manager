@@ -9,6 +9,7 @@ import { dataItems } from "./data/items";
 
 import { filterListByMounth, getCurrentMounth } from "./helpers/dateFilter"
 import { TableArea } from "./components/TableArea";
+import { InfoArea } from "./components/InfoArea";
 
 const App = () => {
 
@@ -20,6 +21,10 @@ const App = () => {
     setFilteredList(filterListByMounth(items, currentMonth));
   }, [items, currentMonth])
 
+  const handleMonthChange = (newMonth: string) => {
+    setCurrentMonth(newMonth);
+  }
+
   return (
     <C.AppContainer>
       <C.Header>
@@ -28,6 +33,10 @@ const App = () => {
       <C.Body>
 
         {/* Section Info */}
+        <InfoArea
+          currentMonth={currentMonth}
+          onMonthChange={handleMonthChange}
+        />
 
         {/* Section Insert Info */}
 
