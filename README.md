@@ -1,6 +1,15 @@
-# Getting Started with Create React App
+# Simple Financial Manager
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+![](/src/assets/tela_principal.png)
+
+##Techs
+* Reac JS
+* Styled Components
+* TypeScript
+
+
 
 ## Available Scripts
 

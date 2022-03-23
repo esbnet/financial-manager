@@ -41,7 +41,7 @@ export const InfoArea = ({ currentMonth, onMonthChange, income, expense }: IProp
         <ResumeItem title="Receitas" value={income} />
         <ResumeItem title="Despesas" value={expense} />
         <ResumeItem 
-          title="Balanço" 
+          title="Saldo" 
           value={ sumary }
           color={sumary < 0 ? 'red' : 'green'} 
         />
