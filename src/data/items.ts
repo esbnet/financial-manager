@@ -26,7 +26,7 @@ export const dataItems: IItem[] = [
 		id: 4,
 		date: new Date(2022, 3, 15),
 		category: "salary",
-		title: "Aluguel da casa",
-		value: 950.00
+		title: "Salário do Mês 3",
+		value: 5700.00
 	},
 ];

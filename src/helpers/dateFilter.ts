@@ -1,54 +1,42 @@
-import { IItem } from "../interfaces/Item";
+import { IItem } from '../interfaces/Item';
 
-export const getCurrentMounth = () => {
-	let now = new Date();
-	const month = now.getMonth() + 1;
-	const year = now.getFullYear();
+export const getCurrentMonth = () => {
+    let now = new Date();
+    return `${now.getFullYear()}-${now.getMonth()+1}`;
+}
 
-	return `${year}-${month}`;
-};
+export const filterListByMonth = (list: IItem[], date: string): IItem[] => {
+    let newList: IItem[] = [];
+    let [year, month] = date.split('-');
 
-export const filterListByMounth = (list: IItem[], date: string): IItem[] => {
-	let newList: IItem[] = [];
-	let [year, month] = date.split("-");
+    for(let i in list) {
+        if(
+            list[i].date.getFullYear() === parseInt(year) &&
+            (list[i].date.getMonth()) === parseInt(month)
+        ) {
+            newList.push(list[i]);
+        }
+    }
 
-	for (let i in list) {
-		if (
-			list[i].date.getFullYear() === parseInt(year) &&
-			list[i].date.getMonth() === parseInt(month)
-		) {
-			newList.push(list[i]);
-		}
-	}
-
-	return newList;
-};
+    return newList;
+}
 
 export const formatDate = (date: Date): string => {
-	const day = ("00" + date.getDate()).slice(-2);
-	const month = ("00" + date.getMonth()).slice(-2);
-	const year = ("0000" + date.getFullYear()).slice(-4);
+    let year = date.getFullYear();
+    let month = date.getMonth() ;
+    let day = date.getDate();
 
-	return `${day}/${month}/${year}`;
-};
+    return `${addZeroToDate(day)}/${addZeroToDate(month)}/${year}`;
+}
+const addZeroToDate = (n: number): string => n < 10 ? `0${n}` : `${n}`;
 
-export const formatCurrentMounth = (currentMounth: string) => {
-	let [year, month] = currentMounth.split("-");
+export const formatCurrentMonth = (currentMonth: string): string => {
+    let [year, month] = currentMonth.split('-');
+    let months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+    return `${months[parseInt(month) - 1]} de ${year}`;
+}
 
-	const months = [
-		"Janeiro",
-		"Fevereiro",
-		"Março",
-		"Abril",
-		"Maio",
-		"Junho",
-		"Julho",
-		"Agosto",
-		"Setembro",
-		"Outubro",
-		"November",
-		"Dezenove",
-	];
-
-	return `${months[parseInt(month) - 1]} de ${year}`;
-};
+export const newDateAdjusted = (dateField: string) => {
+    let [year, month, day] = dateField.split('-')
+    return new Date(parseInt(year), parseInt(month) , parseInt(day))
+  }

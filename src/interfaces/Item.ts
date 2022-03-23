@@ -1,5 +1,5 @@
 export interface IItem {
-  id: number;
+  id?: number;
   date: Date;
   category: string;
   title: string;
